@@ -1,5 +1,4 @@
 // 데이터공간
-import axios from 'axios';
 
 export const dailyHealth = [
     {
