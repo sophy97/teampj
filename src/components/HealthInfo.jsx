@@ -41,28 +41,15 @@ const HealthInfo = () => {
         <p>{date.getFullYear()}/{date.getMonth()}/{date.getDate()} {days[date.getDay()]}</p>        
         </div>
         
-        {/* map() 잘 되다가 갑자기 안 돼서, 일단 반복합니다.. */}
+        {/* map()으로 json의 data하나씩 출력 */}
         <Slider {...settings}>
-          <div className="slideList">
-            <h2>{dailyInfo[0].dissNm}</h2>
-            <p>{dailyInfo[0].dissRiskXpln}</p>
-          </div>
-          <div className="slideList">
-            <h2>{dailyInfo[1].dissNm}</h2>
-            <p>{dailyInfo[1].dissRiskXpln}</p>
-          </div>
-          <div className="slideList">
-            <h2>{dailyInfo[2].dissNm}</h2>
-            <p>{dailyInfo[2].dissRiskXpln}</p>
-          </div>
-          <div className="slideList">
-            <h2>{dailyInfo[3].dissNm}</h2>
-            <p>{dailyInfo[3].dissRiskXpln}</p>
-          </div>
-          <div className="slideList">
-            <h2>{dailyInfo[4].dissNm}</h2>
-            <p>{dailyInfo[4].dissRiskXpln}</p>
-          </div> 
+          {dailyInfo.map((list, idx)=> (
+            <div className="slideList" key={idx}>
+              <h2>{list.dissNm}</h2>
+              <p>{list.dissRiskXpln}</p>
+            </div>
+            ))
+          }
         </Slider>
         </>
       </StyledSlider>

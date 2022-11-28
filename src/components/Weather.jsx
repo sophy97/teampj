@@ -38,7 +38,7 @@ const searchWeather = async(e) => {
         <WeatherWrap>
             <div className="weatherContentWrap">
                 <br />
-                <h4> weather 🌤 <span style={{color:'red',fontSize:'medium'}}>now</span></h4>
+                <h4> 날씨 정보 🌤 <span style={{color:'red',fontSize:'medium'}}>now</span></h4>
                 <br />
                 <input placeholder="도시 입력(eng) > 엔터" 
                 type="text" onKeyDown={searchWeather}
