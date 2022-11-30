@@ -7,17 +7,18 @@ const DataContext = createContext();
 // DataProvider를 여기서 작성 후 value값을 이미 가진 컴포넌트를 내보내기
 const DataProvider = ( {children} )=> {
 
-    // 1 유저 데이터
+    // 유저 데이터
     //로그인 후 계속 사용될 유저정보 
     // >> id/name/age/gender/questionnaire{}/medicine{}/
     const [user, setUser] = useState( [
         {
             id : 1,
-            userid : "",
-            username : "",
+            userId : "seo",
+            userPw: "123",
+            username : "서",
             age : 20,
             gender : "F",
-            questionnaire :{
+            questionnaire : {
                 weight:50,
                 height:160,
             },

@@ -15,19 +15,21 @@ const LoginPage = () => {
 
     	// input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
         const handleId = (e) => {
-            setInputId(e.target.value)
+            setInputId(e.target.value);
         }
         const handlePw = (e) => {
-            setPassword(e.target.value)
+            setPassword(e.target.value);
         }
         // login 버튼 클릭 이벤트
         const onClickLogin = () => {
-            if (data.user.userid === InputId) {
-                navigate('/');
+            // 내장함수 사용해서 id순서로 훑어서 조건에 맞는 객체 있는지 찾고 싶음
+            if (data.state.user[0].userid === InputId && data.state.user[0].userPw === password) {
+                alert("로그인 성공");
+                navigate('/mypage');
             } else {
-                navigate('/adduser');
+                alert("정보없음 회원가입하세요!")
+                navigate('/signup');
             }
-            
         }
         // 페이지 렌더링 후 가장 처음 호출되는 함수
         useEffect ( () => {
@@ -35,13 +37,13 @@ const LoginPage = () => {
         
     return ( 
         <div>
-            <h1>Login</h1>
+            <h1>로그인</h1>
             <div>
-                <label htmlFor='input_id'>id : </label>
+                <label>id : </label>
                 <input type='text' name='input_id' value={InputId} onChange={handleId} />
             </div>
             <div>
-                <label htmlFor='input_pw'>password : </label>
+                <label>password : </label>
                 <input type='password' name='input_pw' value={password} onChange={handlePw} />
             </div>
             <div>

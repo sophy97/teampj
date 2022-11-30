@@ -2,18 +2,23 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Main from './Pages/Main';
 import LoginPage from './Pages/LoginPage';
-import AddUser from './Pages/AddUser';
+import SignUp from './Pages/SignUp';
+import MyPage from './Pages/Mypage';
+import { DataProvider } from './data/DataContext';
+
 
 function App() {
   return (
+    <DataProvider>
     <div className="App">
-      
       <Routes>
         <Route path ='/' element={<Main />} />
         <Route path ='/login' element={<LoginPage />} />
-        <Route path ='/adduser' element={<AddUser />} />
+        <Route path ='/mypage' element={<MyPage />} />
+        <Route path ='/signup' element={<SignUp />} />
       </Routes>
     </div>
+    </DataProvider>
   );
 }
 
