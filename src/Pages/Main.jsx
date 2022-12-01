@@ -13,6 +13,7 @@ const Main = () => {
 
     return ( 
         <div>
+            <br />
             <button onClick={()=>{navigate('/login')}}>로그인</button>
             <br /><br />
             <HealthInfo />

@@ -10,7 +10,7 @@ const MyPage = () => {
             <h1>mypage</h1>
             <div>
                 {/* id값과 일치한 로그인데이터[i번째]를 불러와야함 */}
-                <p> 유저정보: {data.state.user[0].username} </p>
+                <p> 로그인한 유저 이름: {data.state.loginUser.username} </p>
             </div>
         </div>
     );

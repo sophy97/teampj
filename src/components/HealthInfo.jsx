@@ -38,7 +38,7 @@ const HealthInfo = () => {
         <>
         <div className="title-box">
         <h4>5대 질병 행동요령</h4>
-        <p>{date.getFullYear()}/{date.getMonth()}/{date.getDate()} {days[date.getDay()]}</p>        
+        <p>{date.getFullYear()}/{date.getMonth()+1}/{date.getDate()} {days[date.getDay()]}</p>        
         </div>
         
         {/* map()으로 json의 data하나씩 출력 */}

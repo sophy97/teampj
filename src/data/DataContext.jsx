@@ -4,10 +4,10 @@ import { createContext, useState } from "react";
 
 const DataContext = createContext();
 
-// DataProvider를 여기서 작성 후 value값을 이미 가진 컴포넌트를 내보내기
+// DataProvider를 여기서 작성 후 value값을 이미 가진 컴포넌트 내보내기
 const DataProvider = ( {children} )=> {
 
-    // 유저 데이터
+    // 전체 유저 데이터
     //로그인 후 계속 사용될 유저정보 
     // >> id/name/age/gender/questionnaire{}/medicine{}/
     const [user, setUser] = useState( [
@@ -25,12 +25,29 @@ const DataProvider = ( {children} )=> {
             medicine : {
                 cough:true,
                 fever:false,
-            }
+            },
         },
         {
             id : 2,
-            userid : "",
-            username : "",
+            userId : "lee",
+            userPw: "456",
+            username : "리",
+            age : 25,
+            gender : "M",
+            questionnaire :{
+                weight:60,
+                height:180,
+            },
+            medicine : {
+                cough:true,
+                fever:false,
+            }
+        },
+        {
+            id : 3,
+            userId : "kim",
+            userPw: "789",
+            username : "김",
             age : 25,
             gender : "M",
             questionnaire :{
@@ -45,26 +62,40 @@ const DataProvider = ( {children} )=> {
     ] );
 
 
-    // 로그인 로그아웃 함수
-    const [login, setLogin] = useState(true);
-    
-    // 사용할 value값들을 state(초기값)과 action(변경값) 분리해 넣어둔다
-    const value = 
+    // 로그인된 유저의 상태 state
+    const [loginUser, setLoginUser] = useState(
     {
-        state: {user, login},
-        action: {setUser, setLogin}
-    };
-
+        id : 1,
+        userId : "seo",
+        userPw: "123",
+        username : "서",
+        age : 20,
+        gender : "F",
+        questionnaire : {
+            weight:50,
+            height:160,
+        },
+        medicine : {
+            cough:true,
+            fever:false,
+        },
+    }
+    );
     
+    // 사용할 value값들을 state(초기값)과 action(변경값) 분리해서 넣기
+    const value = 
+        {
+            state: {user, loginUser},
+            action: {setUser, setLoginUser}
+        };
+
     // DataProvider를 사용할 때, DataContext.Provider를 불러 사용하게끔
     // 이때, {children}은 Provider데이터를 공용으로 쓰는 컴포넌트들
-    
     return (
     <DataContext.Provider value={value}>
     {children} 
     </DataContext.Provider>
     );
-
 };
 
 
